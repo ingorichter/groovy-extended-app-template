@@ -1,0 +1,32 @@
+apply plugin: 'groovy'
+apply plugin: 'application'
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+apply plugin: 'cobertura'
+apply plugin: 'codenarc'
+
+// Versions
+ext {
+    coberturaVersion = '1.1.2'
+    groovyVersion = '2.1.3'
+    spockVersion = '0.7-groovy-2.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath "net.saliman:gradle-cobertura-plugin:1.1.2"
+    }
+}
+
+dependencies {
+    compile "org.codehaus.groovy:groovy-all:${groovyVersion}"
+    testCompile "org.spockframework:spock-core:${spockVersion}"
+}
